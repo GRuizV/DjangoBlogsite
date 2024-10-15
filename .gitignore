@@ -1,5 +1,5 @@
 # Ignore virtual environment directories
-...
+blogsite_venv/
 
 # Ignore environment variable files
 .env
