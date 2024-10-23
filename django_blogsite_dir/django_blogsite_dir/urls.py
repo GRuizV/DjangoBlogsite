@@ -24,5 +24,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls'))
+    path('', include('blog.urls')),     # the first argument is set to an empty string because we want the blog to be the home page of the whole website, so it's redirected to blog.urls
 ]

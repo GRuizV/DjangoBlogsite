@@ -3,15 +3,37 @@ from django.http import HttpResponse, HttpRequest
 
 
 
+# Dummy data
+posts = [
+    {
+        'author': 'CoreyMS',
+        'title': 'Blog Post 1',
+        'content': 'First post content',
+        'date_posted': 'Aug 27, 2018'
+    },
+
+    {
+        'author': 'Jane Doe',
+        'title': 'Blog Post 2',
+        'content': 'Second post content',
+        'date_posted': 'Aug 28, 2018'
+    }
+]
+
+
 def home(request: HttpRequest) -> HttpResponse:
 
-    return HttpResponse('<h1>Blog Home</h1>')
+    context = {
+        'posts': posts
+    }
+
+    return render(request, 'blog/home.html', context=context)
 
 
 
 def about(request: HttpRequest) -> HttpResponse:
 
-    return HttpResponse('<h1>Blog About</h1>')
+    return render(request, 'blog/about.html', context= {'title': 'About'})
 
 
 
