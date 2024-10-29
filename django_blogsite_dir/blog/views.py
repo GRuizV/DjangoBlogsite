@@ -16,7 +16,7 @@ def home(request: HttpRequest) -> HttpResponse:
 
 def about(request: HttpRequest) -> HttpResponse:
 
-    return render(request, 'blog/about.html', context= {'title': 'About'})
+    return render(request, 'blog/about.html', context = {'title': 'About'})
 
 
 
