@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 from .models import Post
+from comments.models import Comments
 
 
 
@@ -26,6 +27,19 @@ def Blog_Detail(request,pk):
     context = {
         "blog" : blog
     }
+
+    if request.POST:
+        user = request.user
+        post = blog
+        message = request.POST.get("message")
+
+        comment = Comments.objects.create(
+            user = user,
+            post = post,
+            message = message
+        )
+        
+        comment.save()
 
     return render(request,"enter file name.html",context)
 
