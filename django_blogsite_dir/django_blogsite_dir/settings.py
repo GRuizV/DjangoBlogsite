@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -129,8 +130,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # will be the full path to the directly where we want Django to store uploaded files
+MEDIA_URL = '/media/'  # will be the public route to the Media Root, meaning where it will look through the browser
+
+
+
+
 CRISPY_ALLOWED_TEMPLATE_PACK = 'bootstrap4' # Crispy form setting for more recent bootstrap
 CRISPY_TEMPLATE_PACK = 'bootstrap4' # Crispy form setting for more recent bootstrap
+
 
 
 
