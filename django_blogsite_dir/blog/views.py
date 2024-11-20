@@ -88,7 +88,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     model = Post
-    success_url = '/'   # This is the way to redirecto to home
+    success_url = '/'   # This is the way to redirect to home
 
     def test_func(self):
 
