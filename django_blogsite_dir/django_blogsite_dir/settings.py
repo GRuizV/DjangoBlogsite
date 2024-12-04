@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-)ycy16u&nl&nm50p!3^ep9u1s!^i3umordh52n(9dh)f)(6kda
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gruizv.pythonanywhere.com', 'localhost', '127.0.0.1'] # Modified to be hosted at PythonAnywhere and to be deployed locally
 
 
 # Application definition
