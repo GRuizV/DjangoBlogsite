@@ -31,6 +31,12 @@ A dynamic and fully-featured blogging platform built with Django, designed to ma
     * Responsive design with modern styling.
 
 
+## Live Demo
+
+The Django Blogsite is deployed on PythonAnywhere (GRuizV.pythonanywhere.com).
+Visit the live demo to explore the platform's features!
+
+
 
 ## Technologies Stack
 
@@ -99,7 +105,7 @@ A dynamic and fully-featured blogging platform built with Django, designed to ma
 - Add a commenting system for blog posts.
 - Implement search functionality for posts.
 - Enhance profile pages with additional user statistics.
-- Deploy the project to a live server (e.g., Heroku, AWS, or Vercel).
+- Extend deployment options: Explore other deployment platforms like AWS, Heroku, or Vercel.
 
 
 ## License
