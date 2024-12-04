@@ -33,7 +33,8 @@ A dynamic and fully-featured blogging platform built with Django, designed to ma
 
 ## Live Demo
 
-The Django Blogsite is deployed on PythonAnywhere (GRuizV.pythonanywhere.com).
+The Django Blogsite is deployed on PythonAnywhere: [GRuizV.pythonanywhere.com](https://gruizv.pythonanywhere.com).
+
 Visit the live demo to explore the platform's features!
 
 
