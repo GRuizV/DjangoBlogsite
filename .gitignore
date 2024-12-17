@@ -10,3 +10,6 @@ __pycache__/
 
 # Ignore [other stuff]
 tutorial_transcripts/
+django_blogsite_dir/media/
+django_blogsite_dir/staticfiles/
+venv/
