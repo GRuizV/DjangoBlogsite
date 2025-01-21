@@ -16,4 +16,4 @@ venv/
 staticfiles/
 
 # Ignore the database file
-db.sqlite3
+*.sqlite3
