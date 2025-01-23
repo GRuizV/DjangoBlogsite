@@ -14,6 +14,8 @@ django_blogsite_dir/media/
 django_blogsite_dir/staticfiles/
 venv/
 staticfiles/
+Lessons Learned/
+DB backups/
 
 # Ignore the database file
 *.sqlite3
