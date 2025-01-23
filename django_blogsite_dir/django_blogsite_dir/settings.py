@@ -30,6 +30,15 @@ config = Config(RepositoryEnv(env_path))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 
+
+# Environmental Variables setting
+EMAIL_HOST_USER = config('EMAIL_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_PASS')
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -49,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages'  # Added to manage AWS S3 Storage
 ]
 
 MIDDLEWARE = [
@@ -145,10 +155,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
+if DEBUG:
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # will be the full path to the directly where we want Django to store uploaded files
+    MEDIA_URL = '/media/'  # will be the public route to the Media Root, meaning where it will look through the browser
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # will be the full path to the directly where we want Django to store uploaded files
-MEDIA_URL = '/media/'  # will be the public route to the Media Root, meaning where it will look through the browser
-
+else:
+    MEDIA_ROOT = '' # Set to explicity say to Django to not fallback to root directory to store media
+    MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/'
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 
@@ -168,10 +182,13 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config('EMAIL_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_PASS')
 
 
+# AWS S3 Settings
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = 'public-read'
+AWS_S3_REGION_NAME = 'us-east-2'
+AWS_QUERYSTRING_AUTH = False  # Optional: Makes files publicly accessible without a signed URL
 
 
 
